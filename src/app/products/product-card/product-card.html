@@ -1,0 +1,6 @@
+<div class="product-card">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p class="price">${{ product.price | number: '1.2-2' }}</p>
+    <button (click)="onBuyNow()">Buy Now</button>
+</div>

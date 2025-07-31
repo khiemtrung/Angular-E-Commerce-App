@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product-card',
@@ -10,13 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 
 export class ProductCardComponent {
-  @Input() product: { name: string; price: number; description: string } = {
-    name: '',
-    price: 0,
-    description: ''
-  };
+  @Input() product: Product = { id: 0, name: '', price: 0, description: '', inStock: true };
+  @Output() stockToggled = new EventEmitter<number>();
 
   onBuyNow() {
     alert(`Buy now clicked for ${this.product.name}`);
+  }
+
+  toggleStock() {
+    this.stockToggled.emit(this.product.id);
   }
 }

@@ -1,6 +1,8 @@
-<div class="product-card">
+<div class="product-card" [ngClass]="{'out-of-stock': !product.inStock}">
     <h2>{{ product.name }}</h2>
     <p>{{ product.description }}</p>
     <p class="price">${{ product.price | number: '1.2-2' }}</p>
     <button (click)="onBuyNow()">Buy Now</button>
+    <button (click)="toggleStock()">{{ product.inStock ? 'Mark Out of Stock' : 'Mark In Stocl' }}</button>
+    <p *ngIf="!product.inStock" class="stock-status">Out of Stock</p>
 </div>

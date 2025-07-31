@@ -21,6 +21,17 @@
     font-weight: bold;
   }
 
+  &.out-of-stock {
+    opacity: 0.6;
+    background-color: #f8f8f8;
+  }
+
+  .stock-status {
+    color: #dc3545;
+    font-weight: bold;
+  }
+
+
   button {
     background-color: #007bff;
     color: #fff;
